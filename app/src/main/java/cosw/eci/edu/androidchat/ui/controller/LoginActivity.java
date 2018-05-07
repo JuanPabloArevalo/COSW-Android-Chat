@@ -3,7 +3,9 @@ package cosw.eci.edu.androidchat.ui.controller;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
+import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.app.LoaderManager.LoaderCallbacks;
@@ -269,6 +271,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                     Log.d(TAG, "signInAnonymously:success");
                     FirebaseUser user = mAuth.getCurrentUser();
                     Toast.makeText(LoginActivity.this, "Authentication good."+user.getIdToken(true),Toast.LENGTH_SHORT).show();
+                    loginSuccessful();
                 }
                 else{
                     Log.w(TAG, "signInAnonymously:failure", task.getException());
@@ -277,6 +280,11 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             }
         });
         // [END signin_anonymously]
+    }
+
+    public void loginSuccessful() {
+        Intent intent = new Intent(this, ChatActivity.class);
+        startActivity(intent);
     }
 }
 
