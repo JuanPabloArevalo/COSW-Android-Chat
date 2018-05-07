@@ -16,6 +16,7 @@
         android:paddingTop="16dp"
         tools:context=".ui.activity.MainActivity">
 
+
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="376dp">

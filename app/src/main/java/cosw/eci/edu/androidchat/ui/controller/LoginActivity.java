@@ -270,7 +270,6 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                 if(task.isSuccessful()){
                     Log.d(TAG, "signInAnonymously:success");
                     FirebaseUser user = mAuth.getCurrentUser();
-                    Toast.makeText(LoginActivity.this, "Authentication good."+user.getIdToken(true),Toast.LENGTH_SHORT).show();
                     loginSuccessful();
                 }
                 else{
